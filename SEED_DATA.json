@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Oversized Core Hoodie",
+    "price": 799,
+    "category": "Hoodies",
+    "description": "Heavyweight cotton hoodie with an oversized streetwear fit. Features dropped shoulders, kangaroo pocket, and premium brushed fleece interior for all-day comfort.",
+    "imageURL": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop",
+    "featured": true,
+    "badge": "BEST SELLER"
+  },
+  {
+    "name": "Vintage Wash Hoodie",
+    "price": 899,
+    "category": "Hoodies",
+    "description": "Garment-dyed hoodie with a vintage wash finish. Relaxed fit with ribbed cuffs and hem for a timeless streetwear silhouette.",
+    "imageURL": "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Tech Fleece Hoodie",
+    "price": 999,
+    "category": "Hoodies",
+    "description": "Performance tech fleece hoodie with water-resistant finish. Designed for urban movement with hidden zip pockets and reflective details.",
+    "imageURL": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&h=800&fit=crop",
+    "featured": true,
+    "badge": "NEW"
+  },
+  {
+    "name": "Essential Box Tee",
+    "price": 349,
+    "category": "T-Shirts",
+    "description": "Premium heavyweight cotton box-fit t-shirt. Dropped shoulders and a relaxed silhouette make this the ultimate everyday staple.",
+    "imageURL": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop",
+    "featured": true,
+    "badge": "BEST SELLER"
+  },
+  {
+    "name": "Graphic Street Tee",
+    "price": 449,
+    "category": "T-Shirts",
+    "description": "Oversized graphic t-shirt featuring original Urban Threads artwork. Printed on 240gsm cotton with a vintage cracked finish.",
+    "imageURL": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Longline Layer Tee",
+    "price": 399,
+    "category": "T-Shirts",
+    "description": "Extended hem longline t-shirt designed for layering. Soft-touch cotton with side slits for enhanced mobility and style.",
+    "imageURL": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Retro Runner Sneakers",
+    "price": 1299,
+    "category": "Sneakers",
+    "description": "Vintage-inspired runner silhouette with modern cushioning. Suede and mesh upper with gum rubber outsole for that classic street look.",
+    "imageURL": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=800&fit=crop",
+    "featured": true,
+    "badge": "BEST SELLER"
+  },
+  {
+    "name": "Urban High-Top",
+    "price": 1499,
+    "category": "Sneakers",
+    "description": "Premium leather high-top sneakers with padded collar and cushioned insole. Clean lines and minimal branding for versatile styling.",
+    "imageURL": "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Chunky Street Trainer",
+    "price": 1199,
+    "category": "Sneakers",
+    "description": "Bold chunky sole trainer with mixed material upper. Statement silhouette that anchors any streetwear fit with confident style.",
+    "imageURL": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&h=800&fit=crop",
+    "featured": true,
+    "badge": "NEW"
+  },
+  {
+    "name": "Minimal Court Shoe",
+    "price": 999,
+    "category": "Sneakers",
+    "description": "Clean court-inspired sneaker in premium leather. Low-profile design with subtle perforations and a comfortable cupsole.",
+    "imageURL": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Canvas Skate Low",
+    "price": 699,
+    "category": "Sneakers",
+    "description": "Durable canvas skate shoe with vulcanized sole. Reinforced stitching and padded tongue for skate performance and street style.",
+    "imageURL": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Classic Dad Cap",
+    "price": 299,
+    "category": "Accessories",
+    "description": "Six-panel unstructured dad cap with embroidered logo. Adjustable strap closure and curved brim for everyday wear.",
+    "imageURL": "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Urban Crossbody Bag",
+    "price": 549,
+    "category": "Accessories",
+    "description": "Compact crossbody bag with multiple compartments. Water-resistant nylon with adjustable strap and reflective zipper pulls.",
+    "imageURL": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&h=800&fit=crop",
+    "featured": true,
+    "badge": "NEW"
+  },
+  {
+    "name": "Leather Belt",
+    "price": 399,
+    "category": "Accessories",
+    "description": "Full-grain leather belt with brushed metal buckle. Clean design that pairs with any outfit from casual to smart-casual.",
+    "imageURL": "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Street Socks 3-Pack",
+    "price": 199,
+    "category": "Accessories",
+    "description": "Three-pack of premium cotton crew socks with ribbed cuffs. Cushioned footbed and reinforced heel for all-day comfort.",
+    "imageURL": "https://images.unsplash.com/photo-1582966772680-860e372bb558?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  },
+  {
+    "name": "Beanie Knit",
+    "price": 249,
+    "category": "Accessories",
+    "description": "Ribbed knit beanie in soft acrylic blend. Fold-over cuff with subtle embroidered logo. One size fits most.",
+    "imageURL": "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=600&h=800&fit=crop",
+    "featured": false,
+    "badge": null
+  }
+]

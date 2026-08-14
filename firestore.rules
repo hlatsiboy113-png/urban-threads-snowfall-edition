@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Products - publicly readable, admin-only write
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Users - users can only read/write their own document
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Cart items - users can only access their own cart
+    match /users/{userId}/cart/{cartItemId} {
+      allow read, write, delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Wishlist items - users can only access their own wishlist
+    match /users/{userId}/wishlist/{wishlistItemId} {
+      allow read, write, delete: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

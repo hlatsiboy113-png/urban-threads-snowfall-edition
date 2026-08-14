@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Urban Threads — Streetwear designed for movement. Shop hoodies, t-shirts, sneakers, and accessories.">
+  <title>Urban Threads — Streetwear for the City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="home">
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">Urban<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="shop.html?category=Hoodies" class="nav-link">Collections</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="shop.html" class="nav-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </a>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <div id="nav-auth-links" class="flex items-center gap-4">
+          <a href="login.html" class="nav-link">Login</a>
+        </div>
+
+        <div id="nav-user-links" class="flex items-center gap-4 hidden">
+          <span class="user-name" id="nav-user-name"></span>
+          <a href="account.html" class="nav-btn" aria-label="Account">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="cart.html" class="nav-btn" aria-label="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span class="cart-count" style="display:none;">0</span>
+          </a>
+          <button class="nav-btn" id="nav-logout" aria-label="Logout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </button>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">Urban<span>.</span></a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="shop.html" class="mobile-nav-link">Shop</a>
+      <a href="shop.html?category=Hoodies" class="mobile-nav-link">Collections</a>
+      <a href="cart.html" class="mobile-nav-link">Cart</a>
+      <a href="account.html" class="mobile-nav-link">Account</a>
+      <a href="login.html" class="mobile-nav-link">Login</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=1920&h=1080&fit=crop" alt="Urban streetwear model" class="hero-image" loading="eager">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Winter / New Collection</p>
+      <h1 class="hero-title">Built for the<br>City.</h1>
+      <p class="hero-subtitle">Streetwear designed for movement. Premium fabrics, bold silhouettes, and urban attitude in every thread.</p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-primary btn-lg">Shop Collection</a>
+        <a href="shop.html?category=Hoodies" class="btn btn-secondary btn-lg">Explore Looks</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section" aria-labelledby="categories-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 id="categories-heading" class="section-title">Shop by Category</h2>
+          <p class="section-subtitle">Curated essentials for every fit</p>
+        </div>
+      </div>
+      <div class="categories-grid">
+        <a href="shop.html?category=Hoodies" class="category-card">
+          <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop" alt="Hoodies" loading="lazy">
+          <div class="category-card-overlay">
+            <span class="category-card-title">Hoodies</span>
+          </div>
+        </a>
+        <a href="shop.html?category=T-Shirts" class="category-card">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop" alt="T-Shirts" loading="lazy">
+          <div class="category-card-overlay">
+            <span class="category-card-title">T-Shirts</span>
+          </div>
+        </a>
+        <a href="shop.html?category=Sneakers" class="category-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=800&fit=crop" alt="Sneakers" loading="lazy">
+          <div class="category-card-overlay">
+            <span class="category-card-title">Sneakers</span>
+          </div>
+        </a>
+        <a href="shop.html?category=Accessories" class="category-card">
+          <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=600&h=800&fit=crop" alt="Accessories" loading="lazy">
+          <div class="category-card-overlay">
+            <span class="category-card-title">Accessories</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" style="background-color: var(--color-surface);" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 id="featured-heading" class="section-title">Featured Products</h2>
+          <p class="section-subtitle">This week's most wanted</p>
+        </div>
+        <a href="shop.html" class="btn btn-outline btn-sm">View All</a>
+      </div>
+      <div class="products-grid" id="featured-products-grid">
+        <!-- Products loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Statement -->
+  <section class="section brand-section" id="about" aria-labelledby="brand-heading">
+    <div class="container">
+      <div class="brand-content">
+        <p class="text-label" style="margin-bottom: var(--space-4);">Our Philosophy</p>
+        <blockquote>
+          <p class="brand-quote" id="brand-heading">"Clothing is architecture. It is a matter of proportions."</p>
+        </blockquote>
+        <p class="brand-text">Urban Threads was born from a simple belief: streetwear should move with you, not against you. We design for the commute, the skatepark, the gallery opening, and the late-night diner. Every piece is cut from premium materials and finished with obsessive attention to detail. This is clothing built for the rhythm of city life.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2 id="newsletter-heading" class="newsletter-title">Join the Movement</h2>
+        <p class="newsletter-text">Subscribe for early access to drops, exclusive offers, and stories from the street.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast && showToast('Thanks for subscribing!', 'success');">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-required="true">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Urban<span>.</span></p>
+          <p class="footer-desc">Streetwear designed for movement. Premium fabrics, bold silhouettes, and urban attitude in every thread.</p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="shop.html?category=Hoodies" class="footer-link">Hoodies</a></li>
+            <li><a href="shop.html?category=T-Shirts" class="footer-link">T-Shirts</a></li>
+            <li><a href="shop.html?category=Sneakers" class="footer-link">Sneakers</a></li>
+            <li><a href="shop.html?category=Accessories" class="footer-link">Accessories</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">FAQ</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Shipping</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Returns</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2024 Urban Threads. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
