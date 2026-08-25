@@ -1,166 +1,177 @@
-# Urban Threads
+# Urban Threads — Snowfall Edition
 
-A production-quality streetwear e-commerce web application built with HTML, CSS, JavaScript, Firebase Authentication, and Firebase Firestore.
+**Winter '26 — Kids Collection**
 
-## Project Overview
+Premium winter and snow gear e-commerce experience for young athletes and kids. Built for the cold.
 
-Urban Threads is a fictional online clothing store selling casual streetwear to young adults. The application features a polished editorial design, real Firebase integration, dynamic product loading, persistent user carts, authentication, and multiple advanced features.
+**Live site:** https://hlatsiboy113-png.github.io/urban-threads-snowfall-edition/
+
+---
+
+## Campaign
+
+**WINTER '26 — KIDS COLLECTION**
+
+- Hero: *Built for the Cold*
+- Subtitle: Performance. Protection. Play.
+- Focus: young athletes who ski, snowboard, and explore
+
+### Approved product types only
+Puffers · Snow jackets · Winter jackets · Snow pants · Thermal / base layers · Fleece · Winter hoodies · Winter trousers · Gloves · Beanies · Scarves · Winter accessories · Cold-weather footwear · Mountain apparel
+
+### Primary categories
+1. **Puffers**
+2. **Snow Gear**
+3. **Layering**
+4. **Accessories**
+
+No swimwear, beachwear, summer clothing, random T-shirts, or unrelated casual/formal fashion.
+
+---
 
 ## Features
 
-- **Dynamic Product Catalog**: Products loaded in real-time from Firestore
-- **Search & Filter**: Search by name, filter by category (Hoodies, T-Shirts, Sneakers, Accessories)
-- **Sorting**: Featured, Price (Low-High, High-Low), Name (A-Z)
-- **User Authentication**: Sign up, log in, log out with email/password
-- **Persistent Cart**: Firestore-backed cart with quantities, totals, and shipping calculation
-- **Wishlist**: Save favourite products with visual feedback
-- **Product Detail Pages**: Individual product views with quantity selector
-- **Recently Viewed**: Tracks and displays recently viewed products
-- **Dark/Light Mode**: Polished theme switcher with localStorage persistence
-- **Toast Notifications**: Accessible feedback for all user actions
-- **Responsive Design**: Optimized for 375px to 1440px+
-- **Accessibility**: Semantic HTML, ARIA labels, keyboard navigation, focus states
+- Dynamic product catalogue (Firestore + local seed fallback)
+- Search, category filter (Puffers / Snow Gear / Layering / Accessories), and sorting
+- Product detail pages with size selector
+- User authentication (email/password via Firebase Auth)
+- Persistent cart (size-aware) and wishlist per authenticated user
+- Auth-aware navigation, cart count, theme toggle (light/dark)
+- Homepage snowfall animation (~50 flakes)
+- Responsive layout, semantic HTML, keyboard-friendly controls, toasts
+- Firestore security rules enforcing owner-only cart/wishlist access
 
-## Technologies
+---
 
-- HTML5
-- CSS3 (CSS Variables, Grid, Flexbox)
-- JavaScript (ES6+ Modules)
-- Firebase Authentication (v10.7.0)
-- Firebase Firestore (v10.7.0)
+## Tech stack
+
+- HTML5, CSS3 (variables, Grid, Flexbox)
+- JavaScript ES modules
+- Firebase Authentication & Firestore (v10.7.0 via CDN)
 - Google Fonts (Inter)
+- Deployed via GitHub Pages
 
-## Firebase Setup
+---
 
-1. Go to [Firebase Console](https://console.firebase.google.com/)
-2. Create a new project
-3. Register a Web App and copy the configuration
-4. Open `js/firebase.js` and replace the placeholder config with your actual values
-5. Enable **Email/Password** authentication in Authentication > Sign-in method
-6. Create a Firestore database in **test mode** initially, then deploy the security rules
-
-## Firestore Structure
+## Project structure
 
 ```
-products/{productId}     - Public product documents
-users/{uid}              - User profile documents
-users/{uid}/cart/{pid}   - Cart items (per user)
-users/{uid}/wishlist/{pid} - Wishlist items (per user)
-```
-
-## Authentication Architecture
-
-- Firebase Auth handles email/password authentication
-- User documents are created in `users/{uid}` on sign up
-- Auth state is observed globally and updates the navbar dynamically
-- Cart and wishlist are isolated per user via security rules
-
-## Cart Architecture
-
-- Cart data is stored in `users/{uid}/cart/{productId}`
-- Each cart item contains: productId, name, price, imageURL, category, quantity
-- Cart persists across sessions and devices
-- Shipping is R99 (free over R1,500)
-- Subtotal, shipping, and total are calculated dynamically
-
-## Security Rules
-
-See `firestore.rules`. Key principles:
-- Products are publicly readable
-- Users can only read/write their own profile, cart, and wishlist
-- No user can access another user's private data
-
-## Project Structure
-
-```
-urban-threads/
-├── index.html
-├── shop.html
-├── login.html
+urban-threads-snowfall-edition/
+├── index.html          # Home — Winter '26 campaign
+├── shop.html           # Product discovery
+├── product.html        # Product detail + size
 ├── cart.html
-├── product.html
+├── login.html
 ├── account.html
 ├── css/
-│   ├── styles.css        (Design system, base styles, layout)
-│   ├── components.css   (Reusable UI components)
-│   └── responsive.css   (Responsive breakpoints)
+│   ├── styles.css
+│   ├── components.css
+│   └── responsive.css
 ├── js/
-│   ├── firebase.js      (Firebase initialization)
-│   ├── auth.js          (Authentication logic)
-│   ├── products.js      (Product fetching & filtering)
-│   ├── cart.js          (Cart operations)
-│   ├── wishlist.js      (Wishlist operations)
-│   ├── product.js       (Product detail page logic)
-│   ├── ui.js            (UI utilities: toast, theme, helpers)
-│   └── main.js          (Page initialization & shared logic)
+│   ├── firebase.js     # Firebase init (replace placeholders)
+│   ├── auth.js
+│   ├── products.js     # Fetch, filter, seed data
+│   ├── product.js
+│   ├── cart.js
+│   ├── wishlist.js
+│   ├── ui.js
+│   └── main.js
 ├── firestore.rules
 ├── SEED_DATA.json
 └── README.md
 ```
 
-## How to Run Locally
+---
 
-Because the app uses ES modules and Firebase CDN imports, you need to serve it via a local server:
+## Firebase setup (required for full functionality)
+
+The shipped `js/firebase.js` contains **placeholders only**:
+
+```js
+apiKey: "YOUR_API_KEY"
+projectId: "YOUR_PROJECT_ID"
+// ...
+```
+
+**Do not invent credentials.** To connect a real backend:
+
+1. Create a project in [Firebase Console](https://console.firebase.google.com/).
+2. Register a Web app and copy the config object into `js/firebase.js`.
+3. Enable **Email/Password** under Authentication → Sign-in method.
+4. Create a Firestore database.
+5. Deploy the rules in `firestore.rules` (products public-read / no public write; users, cart, and wishlist owner-only).
+6. Seed the `products` collection from `SEED_DATA.json` (or the matching `SEED_PRODUCTS` array in `js/products.js`).
+
+Until real config is supplied, the app falls back to the in-code winter seed catalogue for browsing. Auth, persistent cart, and wishlist require a live Firebase project.
+
+### Firestore structure
+
+```
+products/{productId}              # public read
+users/{userId}                    # owner only
+users/{userId}/cart/{itemId}      # owner only
+users/{userId}/wishlist/{itemId}  # owner only
+```
+
+### Security rules summary
+
+- Products: read = true, write = false
+- User profile, cart, wishlist: authenticated owner only
+
+---
+
+## Local development
+
+Serve over HTTP (ES modules + Firebase CDN):
 
 ```bash
-# Python 3
 python -m http.server 8000
-
-# Node.js
-npx serve .
-
-# PHP
-php -S localhost:8000
+# or: npx serve .
 ```
 
-Then open `http://localhost:8000`
+Open `http://localhost:8000`.
 
-## How to Deploy
+---
 
-### Firebase Hosting (Recommended)
+## Deployment
 
-```bash
-npm install -g firebase-tools
-firebase login
-firebase init hosting
-firebase deploy --only hosting
-```
+This repository is set up for **GitHub Pages** (live URL above).
 
-### Netlify / Vercel
+After pushing to `main`:
 
-Drag and drop the project folder, or connect your Git repository.
+1. Confirm GitHub Pages is enabled for the repository (Settings → Pages → Deploy from branch `main` / root).
+2. Wait for the Pages build.
+3. Verify the live URL and browser console.
 
-## Seeding Firestore Data
+Alternatively use Firebase Hosting, Netlify, or Vercel.
 
-1. Open Firebase Console > Firestore Database
-2. Create a collection called `products`
-3. Import the documents from `SEED_DATA.json` (manually or via a seed script)
+---
 
-Alternatively, use the Firebase Admin SDK or a simple script to batch-upload the seed data.
+## Cart & wishlist behaviour
 
-## Known Limitations
+- Cart and wishlist require login.
+- Selected product **size** is stored on cart items.
+- Shipping: R99, free over R1,500 (ZAR).
+- Data lives in the signed-in user’s Firestore subcollections.
 
-- Checkout is a placeholder (no payment gateway integration)
-- Order history is not yet implemented
-- Product images rely on external Unsplash URLs (consider self-hosting for production)
+---
 
-## Future Improvements
+## Known limitations
 
-- Payment integration (Stripe/PayFast)
-- Order history and tracking
-- Admin dashboard for product management
-- Reviews and ratings
-- Size selector on product pages
-- Image gallery with zoom on product detail
+- Checkout is a placeholder (no payment gateway).
+- Order history not implemented.
+- Product images use external Unsplash URLs.
+- Full auth/cart/wishlist only work after real Firebase credentials are added and rules deployed.
+- No offline/localStorage cart fallback when logged out.
 
-## Assessment Rubric Coverage
+---
 
-| Criterion | Points | Status |
-|-----------|--------|--------|
-| Firebase Firestore + Authentication | 10 | Pass |
-| Login / Signup / Logout | 15 | Pass |
-| Dynamic Firestore Products | 20 | Pass |
-| Shopping Cart + Totals + Persistence | 20 | Pass |
-| Visual Presentation + Technical Organization | 15 | Pass |
-| Additional Features / Design Enhancements | 20 | Pass |
-| **Total** | **100** | **100** |
+## Seed products
+
+All 16 seed products are winter/snow oriented (Puffers, Snow Gear, Layering, Accessories). See `SEED_DATA.json` and `js/products.js` (`SEED_PRODUCTS`).
+
+---
+
+## Licence / notes
+
+Fictional store for demonstration and assessment purposes.
