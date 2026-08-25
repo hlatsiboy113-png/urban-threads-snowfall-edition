@@ -1,367 +1,98 @@
 /* ============================================
-   URBAN THREADS — RESPONSIVE DESIGN
+   URBAN THREADS KIDS — RESPONSIVE
    ============================================ */
 
-/* 1440px+ — Large Desktop */
-@media (min-width: 1440px) {
-  :root {
-    --container-padding: var(--space-10);
-  }
+@media(min-width:1440px){:root{--container-padding:var(--space-10)}}
+@media(max-width:1024px){
+  .products-grid{grid-template-columns:repeat(3,1fr)}
+  .categories-grid{grid-template-columns:repeat(2,1fr)}
+  .wishlist-grid{grid-template-columns:repeat(3,1fr)}
+  .recently-viewed-grid{grid-template-columns:repeat(4,1fr)}
+  .product-detail{gap:var(--space-8)}
+  .cart-page{grid-template-columns:1fr 340px;gap:var(--space-8)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:var(--space-8)}
+  .specs-grid{grid-template-columns:1fr}
 }
-
-/* 1024px — Tablet Landscape / Small Desktop */
-@media (max-width: 1024px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .wishlist-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .recently-viewed-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .product-detail {
-    gap: var(--space-8);
-  }
-
-  .cart-page {
-    grid-template-columns: 1fr 340px;
-    gap: var(--space-8);
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-  }
+@media(max-width:768px){
+  :root{--container-padding:var(--space-5);--text-5xl:2.5rem;--text-6xl:3rem}
+  .section{padding:var(--space-16) 0}
+  .nav-links{display:none}
+  .mobile-menu-btn{display:flex}
+  .mobile-nav{display:flex}
+  .user-name{display:none}
+  .hero{height:80vh;min-height:500px}
+  .hero-title{font-size:var(--text-4xl)}
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
+  .wishlist-grid{grid-template-columns:repeat(2,1fr)}
+  .recently-viewed-grid{grid-template-columns:repeat(3,1fr)}
+  .product-detail{grid-template-columns:1fr}
+  .product-detail-info{position:static}
+  .cart-page{grid-template-columns:1fr}
+  .cart-summary{position:static}
+  .cart-item{grid-template-columns:80px 1fr;grid-template-rows:auto auto}
+  .cart-item-actions{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;padding-top:var(--space-3);border-top:1px solid var(--color-border)}
+  .account-page{grid-template-columns:1fr}
+  .account-sidebar{display:flex;gap:var(--space-4);overflow-x:auto;padding:var(--space-4)}
+  .account-user{display:none}
+  .account-nav{flex-direction:row;flex-wrap:nowrap}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:var(--space-8)}
+  .shop-controls{flex-direction:column;align-items:stretch}
+  .search-box{max-width:none}
+  .filter-group{justify-content:space-between}
+  .newsletter-form{flex-direction:column}
+  .hero-actions{flex-direction:column}
+  .btn{width:100%}
+  .campaign-strip{min-height:400px}
+  .campaign-strip-content{max-width:none}
 }
-
-/* 768px — Tablet Portrait */
-@media (max-width: 768px) {
-  :root {
-    --container-padding: var(--space-5);
-    --text-5xl: 2.5rem;
-    --text-6xl: 3rem;
-  }
-
-  .section {
-    padding: var(--space-16) 0;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-  }
-
-  .mobile-nav {
-    display: flex;
-  }
-
-  .user-name {
-    display: none;
-  }
-
-  .hero {
-    height: 70vh;
-    min-height: 500px;
-  }
-
-  .hero-title {
-    font-size: var(--text-4xl);
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-  }
-
-  .wishlist-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .recently-viewed-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .product-detail {
-    grid-template-columns: 1fr;
-  }
-
-  .product-detail-info {
-    position: static;
-  }
-
-  .cart-page {
-    grid-template-columns: 1fr;
-  }
-
-  .cart-summary {
-    position: static;
-  }
-
-  .cart-item {
-    grid-template-columns: 80px 1fr;
-    grid-template-rows: auto auto;
-  }
-
-  .cart-item-actions {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .account-page {
-    grid-template-columns: 1fr;
-  }
-
-  .account-sidebar {
-    display: flex;
-    gap: var(--space-4);
-    overflow-x: auto;
-    padding: var(--space-4);
-  }
-
-  .account-user {
-    display: none;
-  }
-
-  .account-nav {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-  }
-
-  .shop-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-box {
-    max-width: none;
-  }
-
-  .filter-group {
-    justify-content: space-between;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-  }
+@media(max-width:430px){
+  :root{--text-4xl:2rem;--text-5xl:2.25rem;--text-6xl:2.5rem}
+  .navbar-inner{height:64px}
+  .logo{font-size:var(--text-lg)}
+  .section{padding:var(--space-12) 0}
+  .section-title{font-size:var(--text-2xl)}
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:var(--space-3)}
+  .product-info{padding:var(--space-3)}
+  .product-name{font-size:var(--text-sm)}
+  .product-price{font-size:var(--text-base)}
+  .categories-grid{grid-template-columns:1fr 1fr;gap:var(--space-3)}
+  .category-card-title{font-size:var(--text-base)}
+  .wishlist-grid{grid-template-columns:repeat(2,1fr);gap:var(--space-3)}
+  .recently-viewed-grid{grid-template-columns:repeat(2,1fr)}
+  .cart-item{grid-template-columns:70px 1fr;gap:var(--space-3);padding:var(--space-4)}
+  .cart-item-image{width:70px;height:90px}
+  .cart-summary{padding:var(--space-6)}
+  .auth-card{padding:var(--space-6)}
+  .footer-grid{grid-template-columns:1fr;gap:var(--space-8)}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .toast{min-width:auto;max-width:calc(100vw - var(--space-8));left:var(--space-4);right:var(--space-4)}
+  .toast-container{left:var(--space-4);right:var(--space-4)}
+  .product-detail-actions{flex-direction:column}
+  .quantity-selector{justify-content:center}
+  .category-pills{gap:var(--space-2)}
+  .category-pill{padding:var(--space-2) var(--space-3);font-size:var(--text-xs)}
+  .filter-select{font-size:var(--text-xs)}
+  .size-options{gap:var(--space-1)}
+  .size-option{padding:var(--space-2) var(--space-3);font-size:var(--text-xs);min-width:40px}
 }
-
-/* 430px — Large Mobile */
-@media (max-width: 430px) {
-  :root {
-    --text-4xl: 2rem;
-    --text-5xl: 2.25rem;
-    --text-6xl: 2.5rem;
-  }
-
-  .navbar-inner {
-    height: 64px;
-  }
-
-  .logo {
-    font-size: var(--text-lg);
-  }
-
-  .section {
-    padding: var(--space-12) 0;
-  }
-
-  .section-title {
-    font-size: var(--text-2xl);
-  }
-
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-  }
-
-  .product-info {
-    padding: var(--space-3);
-  }
-
-  .product-name {
-    font-size: var(--text-sm);
-  }
-
-  .product-price {
-    font-size: var(--text-base);
-  }
-
-  .categories-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
-  }
-
-  .category-card-title {
-    font-size: var(--text-base);
-  }
-
-  .wishlist-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-3);
-  }
-
-  .recently-viewed-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .cart-item {
-    grid-template-columns: 70px 1fr;
-    gap: var(--space-3);
-    padding: var(--space-4);
-  }
-
-  .cart-item-image {
-    width: 70px;
-    height: 90px;
-  }
-
-  .cart-summary {
-    padding: var(--space-6);
-  }
-
-  .auth-card {
-    padding: var(--space-6);
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .toast {
-    min-width: auto;
-    max-width: calc(100vw - var(--space-8));
-    left: var(--space-4);
-    right: var(--space-4);
-  }
-
-  .toast-container {
-    left: var(--space-4);
-    right: var(--space-4);
-  }
-
-  .product-detail-actions {
-    flex-direction: column;
-  }
-
-  .quantity-selector {
-    justify-content: center;
-  }
-
-  .category-pills {
-    gap: var(--space-2);
-  }
-
-  .category-pill {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--text-xs);
-  }
-
-  .filter-select {
-    font-size: var(--text-xs);
-  }
+@media(max-width:375px){
+  :root{--container-padding:var(--space-4)}
+  .products-grid{grid-template-columns:1fr}
+  .wishlist-grid{grid-template-columns:1fr}
+  .hero{min-height:450px}
+  .hero-title{font-size:var(--text-3xl)}
+  .cart-item{grid-template-columns:60px 1fr}
+  .cart-item-image{width:60px;height:80px}
 }
-
-/* 375px — Small Mobile */
-@media (max-width: 375px) {
-  :root {
-    --container-padding: var(--space-4);
-  }
-
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .wishlist-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    min-height: 450px;
-  }
-
-  .hero-title {
-    font-size: var(--text-3xl);
-  }
-
-  .cart-item {
-    grid-template-columns: 60px 1fr;
-  }
-
-  .cart-item-image {
-    width: 60px;
-    height: 80px;
-  }
+@media(hover:none){
+  .product-wishlist-btn{opacity:1;transform:translateY(0)}
+  .product-card:hover{transform:none}
+  .product-card:hover .product-image-wrapper img{transform:none}
+  .category-card:hover img{transform:none}
+  .nav-link::after{display:none}
 }
-
-/* Touch device optimizations */
-@media (hover: none) {
-  .product-wishlist-btn {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .product-card:hover {
-    transform: none;
-  }
-
-  .product-card:hover .product-image-wrapper img {
-    transform: none;
-  }
-
-  .category-card:hover img {
-    transform: none;
-  }
-
-  .nav-link::after {
-    display: none;
-  }
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html {
-    scroll-behavior: auto;
-  }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+  html{scroll-behavior:auto}
+  .snowflake{display:none}
 }

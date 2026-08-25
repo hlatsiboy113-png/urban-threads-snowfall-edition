@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shop streetwear at Urban Threads. Hoodies, t-shirts, sneakers, and accessories.">
-  <title>Shop — Urban Threads</title>
+  <meta name="description" content="Shop winter outerwear at Urban Threads Kids. Puffers, snow gear, layering, and accessories.">
+  <title>Shop — Urban Threads Kids</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,13 +14,15 @@
 </head>
 <body data-page="shop">
 
+  <div class="snow-container" aria-hidden="true"></div>
+
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container navbar-inner">
       <a href="index.html" class="logo">Urban<span>.</span></a>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
         <a href="shop.html" class="nav-link active">Shop</a>
-        <a href="shop.html?category=Hoodies" class="nav-link">Collections</a>
+        <a href="shop.html?category=Puffers" class="nav-link">Collections</a>
         <a href="index.html#about" class="nav-link">About</a>
       </div>
       <div class="nav-actions">
@@ -69,7 +71,7 @@
   <header class="page-header">
     <div class="container">
       <h1 class="page-title">Shop All</h1>
-      <p class="page-subtitle">Discover our full collection of streetwear essentials</p>
+      <p class="page-subtitle">Discover our full collection of winter essentials</p>
     </div>
   </header>
 
@@ -92,24 +94,22 @@
 
       <div class="category-pills">
         <button class="category-pill active" data-category="All">All</button>
-        <button class="category-pill" data-category="Hoodies">Hoodies</button>
-        <button class="category-pill" data-category="T-Shirts">T-Shirts</button>
-        <button class="category-pill" data-category="Sneakers">Sneakers</button>
+        <button class="category-pill" data-category="Puffers">Puffers</button>
+        <button class="category-pill" data-category="Snow Gear">Snow Gear</button>
+        <button class="category-pill" data-category="Layering">Layering</button>
         <button class="category-pill" data-category="Accessories">Accessories</button>
       </div>
 
       <p class="results-count" id="results-count">Loading products...</p>
 
-      <div class="products-grid" id="shop-products-grid">
-        <!-- Products loaded dynamically from Firestore -->
-      </div>
+      <div class="products-grid" id="shop-products-grid"></div>
     </div>
   </section>
 
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-bottom" style="border-top:none; padding-top:0;">
-        <p class="footer-copyright">&copy; 2024 Urban Threads. All rights reserved.</p>
+        <p class="footer-copyright">&copy; 2026 Urban Threads Kids. All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Urban Threads — Streetwear designed for movement. Shop hoodies, t-shirts, sneakers, and accessories.">
-  <title>Urban Threads — Streetwear for the City</title>
+  <meta name="description" content="Urban Threads Kids — Premium winter outerwear for young athletes who ski, snowboard, and explore. Built for the cold.">
+  <title>Urban Threads Kids — Built for the Cold</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,27 +18,19 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container navbar-inner">
       <a href="index.html" class="logo">Urban<span>.</span></a>
-
       <div class="nav-links">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="shop.html" class="nav-link">Shop</a>
-        <a href="shop.html?category=Hoodies" class="nav-link">Collections</a>
+        <a href="shop.html?category=Puffers" class="nav-link">Collections</a>
         <a href="#about" class="nav-link">About</a>
       </div>
-
       <div class="nav-actions">
-        <a href="shop.html" class="nav-btn" aria-label="Search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </a>
-
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-
         <div id="nav-auth-links" class="flex items-center gap-4">
           <a href="login.html" class="nav-link">Login</a>
         </div>
-
         <div id="nav-user-links" class="flex items-center gap-4 hidden">
           <span class="user-name" id="nav-user-name"></span>
           <a href="account.html" class="nav-btn" aria-label="Account">
@@ -52,7 +44,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
           </button>
         </div>
-
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -71,60 +62,64 @@
     <div class="mobile-nav-links">
       <a href="index.html" class="mobile-nav-link">Home</a>
       <a href="shop.html" class="mobile-nav-link">Shop</a>
-      <a href="shop.html?category=Hoodies" class="mobile-nav-link">Collections</a>
+      <a href="shop.html?category=Puffers" class="mobile-nav-link">Collections</a>
       <a href="cart.html" class="mobile-nav-link">Cart</a>
       <a href="account.html" class="mobile-nav-link">Account</a>
       <a href="login.html" class="mobile-nav-link">Login</a>
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero — Winter Campaign -->
   <section class="hero" aria-label="Hero">
-    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=1920&h=1080&fit=crop" alt="Urban streetwear model" class="hero-image" loading="eager">
+    <img src="https://images.unsplash.com/photo-1517260739337-6799d239ce83?w=1920&h=1080&fit=crop" alt="Young skier in deep snow against mountain backdrop" class="hero-image" loading="eager">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <p class="hero-label">Winter / New Collection</p>
-      <h1 class="hero-title">Built for the<br>City.</h1>
-      <p class="hero-subtitle">Streetwear designed for movement. Premium fabrics, bold silhouettes, and urban attitude in every thread.</p>
+      <p class="hero-label">Winter '26 — Kids Collection</p>
+      <h1 class="hero-title">Built for<br>the Cold.</h1>
+      <p class="hero-subtitle">Performance. Protection. Play. Premium winter outerwear engineered for young athletes who ski, snowboard, and explore.</p>
       <div class="hero-actions">
-        <a href="shop.html" class="btn btn-primary btn-lg">Shop Collection</a>
-        <a href="shop.html?category=Hoodies" class="btn btn-secondary btn-lg">Explore Looks</a>
+        <a href="shop.html" class="btn btn-primary btn-lg">Shop Now</a>
+        <a href="shop.html?category=Snow Gear" class="btn btn-secondary btn-lg">Explore Collection</a>
       </div>
     </div>
   </section>
 
-  <!-- Categories -->
+  <!-- Categories — Editorial Strip -->
   <section class="section" aria-labelledby="categories-heading">
     <div class="container">
       <div class="section-header">
         <div>
           <h2 id="categories-heading" class="section-title">Shop by Category</h2>
-          <p class="section-subtitle">Curated essentials for every fit</p>
+          <p class="section-subtitle">Curated essentials for every winter adventure</p>
         </div>
       </div>
       <div class="categories-grid">
-        <a href="shop.html?category=Hoodies" class="category-card">
-          <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=800&fit=crop" alt="Hoodies" loading="lazy">
+        <a href="shop.html?category=Puffers" class="category-card">
+          <img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=600&h=800&fit=crop" alt="Kids puffer jacket in snow" loading="lazy">
           <div class="category-card-overlay">
-            <span class="category-card-title">Hoodies</span>
+            <span class="category-card-title">Puffers</span>
+            <span class="category-card-desc">Warmth that goes hard.</span>
           </div>
         </a>
-        <a href="shop.html?category=T-Shirts" class="category-card">
-          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=800&fit=crop" alt="T-Shirts" loading="lazy">
+        <a href="shop.html?category=Snow Gear" class="category-card">
+          <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&h=800&fit=crop" alt="Technical snow jacket on mountain" loading="lazy">
           <div class="category-card-overlay">
-            <span class="category-card-title">T-Shirts</span>
+            <span class="category-card-title">Snow Gear</span>
+            <span class="category-card-desc">Built for adventure.</span>
           </div>
         </a>
-        <a href="shop.html?category=Sneakers" class="category-card">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=800&fit=crop" alt="Sneakers" loading="lazy">
+        <a href="shop.html?category=Layering" class="category-card">
+          <img src="https://images.unsplash.com/photo-1517263904808-5dc91e3e704e?w=600&h=800&fit=crop" alt="Fleece mid-layer in winter forest" loading="lazy">
           <div class="category-card-overlay">
-            <span class="category-card-title">Sneakers</span>
+            <span class="category-card-title">Layering</span>
+            <span class="category-card-desc">Comfort that moves.</span>
           </div>
         </a>
         <a href="shop.html?category=Accessories" class="category-card">
-          <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?w=600&h=800&fit=crop" alt="Accessories" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1565992441121-4367c2967103?w=600&h=800&fit=crop" alt="Ski goggles and winter accessories" loading="lazy">
           <div class="category-card-overlay">
             <span class="category-card-title">Accessories</span>
+            <span class="category-card-desc">Complete the winter fit.</span>
           </div>
         </a>
       </div>
@@ -137,25 +132,79 @@
       <div class="section-header">
         <div>
           <h2 id="featured-heading" class="section-title">Featured Products</h2>
-          <p class="section-subtitle">This week's most wanted</p>
+          <p class="section-subtitle">This season's most wanted</p>
         </div>
         <a href="shop.html" class="btn btn-outline btn-sm">View All</a>
       </div>
       <div class="products-grid" id="featured-products-grid">
-        <!-- Products loaded dynamically -->
+        <!-- Products loaded dynamically from Firestore -->
       </div>
     </div>
   </section>
 
-  <!-- Brand Statement -->
+  <!-- Campaign Editorial Strip -->
+  <section class="campaign-strip" aria-labelledby="campaign-heading">
+    <img src="https://images.unsplash.com/photo-1605540436563-5bca919ae766?w=1920&h=800&fit=crop" alt="Snowboarder carving through fresh powder" class="campaign-strip-image" loading="lazy">
+    <div class="campaign-strip-overlay"></div>
+    <div class="campaign-strip-content">
+      <p class="campaign-strip-label">Engineered for the Mountain</p>
+      <h2 id="campaign-heading" class="campaign-strip-title">Every descent.<br>Every climb.</h2>
+      <p class="campaign-strip-text">From the first chairlift to the last run, Urban Threads Kids is designed to keep young athletes warm, dry, and moving freely in the harshest winter conditions.</p>
+      <a href="shop.html?category=Snow Gear" class="btn btn-primary">Shop Snow Gear</a>
+    </div>
+  </section>
+
+  <!-- Brand Story -->
   <section class="section brand-section" id="about" aria-labelledby="brand-heading">
     <div class="container">
       <div class="brand-content">
         <p class="text-label" style="margin-bottom: var(--space-4);">Our Philosophy</p>
         <blockquote>
-          <p class="brand-quote" id="brand-heading">"Clothing is architecture. It is a matter of proportions."</p>
+          <p class="brand-quote" id="brand-heading">"The mountain doesn't care how old you are. It only cares that you're ready."</p>
         </blockquote>
-        <p class="brand-text">Urban Threads was born from a simple belief: streetwear should move with you, not against you. We design for the commute, the skatepark, the gallery opening, and the late-night diner. Every piece is cut from premium materials and finished with obsessive attention to detail. This is clothing built for the rhythm of city life.</p>
+        <p class="brand-text">Urban Threads Kids was born from a simple belief: young athletes deserve the same technical performance as the pros. We design for the early morning powder runs, the backcountry hikes, the snowball fights, and the aprés-ski hot chocolate. Every piece is cut from premium materials, tested in real winter conditions, and finished with obsessive attention to detail. This is clothing built for the next generation of mountain explorers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Performance Values -->
+  <section class="section" style="background-color: var(--color-surface); border-top: 1px solid var(--color-border);" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header" style="text-align: center; justify-content: center;">
+        <div>
+          <h2 id="values-heading" class="section-title" style="text-align: center;">Built Different</h2>
+          <p class="section-subtitle" style="text-align: center;">What sets Urban Threads Kids apart</p>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-8);">
+        <div class="text-center">
+          <div style="width: 48px; height: 48px; margin: 0 auto var(--space-4); color: var(--color-accent);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h4 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Waterproof Tech</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted);">Sealed seams and membranes that keep moisture out all day.</p>
+        </div>
+        <div class="text-center">
+          <div style="width: 48px; height: 48px; margin: 0 auto var(--space-4); color: var(--color-accent);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 7l4-4 4 4"/><path d="M8 17l4 4 4-4"/></svg>
+          </div>
+          <h4 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Thermal Regulation</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted);">Insulation that breathes when they're working hard.</p>
+        </div>
+        <div class="text-center">
+          <div style="width: 48px; height: 48px; margin: 0 auto var(--space-4); color: var(--color-accent);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Built to Last</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted);">Reinforced stitching and durable fabrics that survive the season.</p>
+        </div>
+        <div class="text-center">
+          <div style="width: 48px; height: 48px; margin: 0 auto var(--space-4); color: var(--color-accent);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">Grows With Them</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted);">Adjustable fits designed to last through growth spurts.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -164,9 +213,9 @@
   <section class="newsletter" aria-labelledby="newsletter-heading">
     <div class="container">
       <div class="newsletter-content">
-        <h2 id="newsletter-heading" class="newsletter-title">Join the Movement</h2>
-        <p class="newsletter-text">Subscribe for early access to drops, exclusive offers, and stories from the street.</p>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast && showToast('Thanks for subscribing!', 'success');">
+        <h2 id="newsletter-heading" class="newsletter-title">Join the Mountain Crew</h2>
+        <p class="newsletter-text">Subscribe for early access to drops, exclusive offers, and stories from the slopes.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Thanks for subscribing!', 'success');">
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-required="true">
           <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -181,41 +230,41 @@
       <div class="footer-grid">
         <div>
           <p class="footer-brand">Urban<span>.</span></p>
-          <p class="footer-desc">Streetwear designed for movement. Premium fabrics, bold silhouettes, and urban attitude in every thread.</p>
+          <p class="footer-desc">Premium winter outerwear for young athletes who ski, snowboard, and explore. Built for the cold.</p>
         </div>
         <div>
           <h4 class="footer-heading">Shop</h4>
           <ul class="footer-links">
-            <li><a href="shop.html?category=Hoodies" class="footer-link">Hoodies</a></li>
-            <li><a href="shop.html?category=T-Shirts" class="footer-link">T-Shirts</a></li>
-            <li><a href="shop.html?category=Sneakers" class="footer-link">Sneakers</a></li>
+            <li><a href="shop.html?category=Puffers" class="footer-link">Puffers</a></li>
+            <li><a href="shop.html?category=Snow Gear" class="footer-link">Snow Gear</a></li>
+            <li><a href="shop.html?category=Layering" class="footer-link">Layering</a></li>
             <li><a href="shop.html?category=Accessories" class="footer-link">Accessories</a></li>
           </ul>
         </div>
         <div>
           <h4 class="footer-heading">Support</h4>
           <ul class="footer-links">
-            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">FAQ</a></li>
-            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Shipping</a></li>
-            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Returns</a></li>
-            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Contact</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">FAQ</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">Shipping</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">Returns</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">Contact</a></li>
           </ul>
         </div>
         <div>
           <h4 class="footer-heading">Legal</h4>
           <ul class="footer-links">
-            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Privacy Policy</a></li>
-            <li><a href="#" class="footer-link" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">Terms of Service</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">Terms of Service</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2024 Urban Threads. All rights reserved.</p>
+        <p class="footer-copyright">&copy; 2026 Urban Threads Kids. All rights reserved.</p>
         <div class="footer-social">
-          <a href="#" aria-label="Instagram" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">
+          <a href="#" aria-label="Instagram" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="#" aria-label="Twitter" onclick="event.preventDefault(); showToast('Coming soon!', 'warning');">
+          <a href="#" aria-label="Twitter" onclick="event.preventDefault(); if(typeof showToast !== 'undefined') showToast('Coming soon!', 'warning');">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
           </a>
         </div>
