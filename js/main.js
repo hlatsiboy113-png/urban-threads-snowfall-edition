@@ -4,7 +4,7 @@ import { initCart } from './cart.js';
 import { initWishlist } from './wishlist.js';
 import { fetchProducts, renderProductsGrid, renderProductSkeletons, SEED_PRODUCTS } from './products.js';
 import { addToCart } from './cart.js';
-import { toggleWishlist, onWishlistChange } from './wishlist.js';
+import { toggleWishlist, onWishlistChange, getWishlistItems } from './wishlist.js';
 import { isAuthenticated } from './auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,6 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
   else if (page === 'account') { initAccountPage(); }
 });
 
+/* ── Wishlist heart-icon sync (used by homepage + shop) ── */
+function syncWishlistIcons() {
+  const items = getWishlistItems();
+  document.querySelectorAll('.product-wishlist-btn').forEach(btn => {
+    const pid = btn.dataset.productId;
+    if (!pid) return;
+    const isActive = items.includes(pid);
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-label', isActive ? 'Remove from wishlist' : 'Add to wishlist');
+    btn.setAttribute('title', isActive ? 'Remove from wishlist' : 'Add to wishlist');
+    const svg = btn.querySelector('svg');
+    if (svg) svg.setAttribute('fill', isActive ? 'currentColor' : 'none');
+  });
+}
+
+/* ── Homepage ── */
 async function initHomepage() {
   const featuredContainer = document.getElementById('featured-products-grid');
   if (featuredContainer) {
@@ -33,12 +49,14 @@ async function initHomepage() {
       const products = result.products.length > 0 ? result.products : SEED_PRODUCTS.slice(0, 4);
       renderProductsGrid(featuredContainer, products);
       attachProductListeners(featuredContainer);
+      syncWishlistIcons();
     } else {
       featuredContainer.innerHTML = `<div class="error-state" style="grid-column:1/-1;"><p>Unable to load featured products.</p></div>`;
     }
   }
 }
 
+/* ── Shop ── */
 async function initShopPage() {
   const grid = document.getElementById('shop-products-grid');
   const searchInput = document.getElementById('shop-search');
@@ -78,6 +96,7 @@ async function initShopPage() {
     const filtered = filterProducts(allProducts, currentFilters);
     renderProductsGrid(grid, filtered);
     attachProductListeners(grid);
+    syncWishlistIcons();
     if (resultsCount) resultsCount.textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
   }
 }
@@ -105,6 +124,7 @@ function debounce(func, wait) {
   return function(...args) { clearTimeout(timeout); timeout = setTimeout(() => func.apply(this, args), wait); };
 }
 
+/* ── Cart page ── */
 async function initCartPage() {
   const { requireAuth } = await import('./auth.js');
   if (!requireAuth('login.html')) return;
@@ -141,12 +161,12 @@ async function initCartPage() {
         </div>
         <div class="cart-item-actions">
           <div class="quantity-selector">
-            <button class="quantity-btn cart-qty-decrease" data-id="${item.productId}" aria-label="Decrease quantity">−</button>
-            <input type="number" class="quantity-input cart-qty-input" value="${item.quantity}" min="1" max="10" data-id="${item.productId}" aria-label="Quantity">
-            <button class="quantity-btn cart-qty-increase" data-id="${item.productId}" aria-label="Increase quantity">+</button>
+            <button class="quantity-btn cart-qty-decrease" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+            <input type="number" class="quantity-input cart-qty-input" value="${item.quantity}" min="1" max="10" data-id="${item.id}" aria-label="Quantity">
+            <button class="quantity-btn cart-qty-increase" data-id="${item.id}" aria-label="Increase quantity">+</button>
           </div>
           <p class="cart-item-subtotal">R${((item.price || 0) * (item.quantity || 0)).toLocaleString('en-ZA')}</p>
-          <button class="cart-item-remove" data-id="${item.productId}">Remove</button>
+          <button class="cart-item-remove" data-id="${item.id}">Remove</button>
         </div>
       `;
       itemsContainer.appendChild(el);
@@ -197,6 +217,7 @@ async function initCartPage() {
   }
 }
 
+/* ── Login ── */
 function initLoginPage() {
   const loginForm = document.getElementById('login-form');
   const signupForm = document.getElementById('signup-form');
@@ -271,11 +292,13 @@ function clearErrors() {
   document.querySelectorAll('.form-error').forEach(el => { el.textContent = ''; el.classList.add('hidden'); });
 }
 
+/* ── Product detail ── */
 async function initProductPage() {
   const { initProductDetail } = await import('./product.js');
   await initProductDetail();
 }
 
+/* ── Account ── */
 async function initAccountPage() {
   const { requireAuth, onAuthStateChange, getUserData, logOut } = await import('./auth.js');
   if (!requireAuth('login.html')) return;
@@ -296,6 +319,7 @@ async function initAccountPage() {
   }
 }
 
+/* ── Product-card listeners (shop + homepage) ── */
 function attachProductListeners(container) {
   if (!container) return;
   container.querySelectorAll('.add-to-cart-btn').forEach(btn => {
@@ -346,8 +370,5 @@ function attachProductListeners(container) {
   });
 }
 
-onWishlistChange(() => {
-  document.querySelectorAll('.product-wishlist-btn').forEach(btn => {
-    // Wishlist state consistency handled by click handlers
-  });
-});
+/* ── Global wishlist sync listener ── */
+onWishlistChange(() => syncWishlistIcons());
