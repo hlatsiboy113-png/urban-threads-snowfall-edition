@@ -1,0 +1,17 @@
+{
+  "name": "urban-threads-snowfall-edition",
+  "version": "1.0.0",
+  "description": "Premium winter outerwear e-commerce for young athletes",
+  "type": "module",
+  "scripts": {
+    "seed": "node scripts/seed-products.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "firebase-admin": "^12.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}
