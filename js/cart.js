@@ -25,7 +25,7 @@ export async function loadCart() {
   try {
     const snapshot = await getDocs(collection(db, 'users', user.uid, 'cart'));
     cartItems = [];
-    snapshot.forEach(docSnap => cartItems.push({ productId: docSnap.id, ...docSnap.data() }));
+    snapshot.forEach(docSnap => cartItems.push({ id: docSnap.id, ...docSnap.data() }));
     notifyCartChange();
     return { success: true, items: cartItems };
   } catch (err) {
@@ -34,23 +34,28 @@ export async function loadCart() {
   } finally { isLoading = false; }
 }
 
+function getCartItemId(product, size) {
+  return size ? `${product.id}__${size}` : product.id;
+}
+
 export async function addToCart(product, quantity = 1, size = null) {
   const user = getCurrentUser();
   if (!user) { showToast('Please log in to add items to your cart.', 'warning'); return { success: false, error: 'Not authenticated' }; }
   if (!product || !product.id) return { success: false, error: 'Invalid product.' };
   try {
-    const cartRef = doc(db, 'users', user.uid, 'cart', product.id);
+    const cartItemId = getCartItemId(product, size);
+    const cartRef = doc(db, 'users', user.uid, 'cart', cartItemId);
     const existingDoc = await getDoc(cartRef);
     if (existingDoc.exists()) {
       const existing = existingDoc.data();
       const newQty = (existing.quantity || 0) + quantity;
       await setDoc(cartRef, { ...existing, quantity: newQty, size: size || existing.size || null, updatedAt: serverTimestamp() });
-      const idx = cartItems.findIndex(i => i.productId === product.id);
+      const idx = cartItems.findIndex(i => i.id === cartItemId);
       if (idx >= 0) { cartItems[idx].quantity = newQty; cartItems[idx].size = size || existing.size || null; }
     } else {
       const cartItem = { productId: product.id, name: product.name || 'Unknown', price: product.price || 0, imageURL: product.imageURL || '', category: product.category || '', quantity, size, addedAt: serverTimestamp(), updatedAt: serverTimestamp() };
       await setDoc(cartRef, cartItem);
-      cartItems.push(cartItem);
+      cartItems.push({ id: cartItemId, ...cartItem });
     }
     notifyCartChange();
     showToast(`Added "${product.name}" to cart.`, 'success');
@@ -71,7 +76,7 @@ export async function updateQuantity(productId, quantity) {
     const existingDoc = await getDoc(cartRef);
     if (!existingDoc.exists()) return { success: false, error: 'Item not found in cart.' };
     await setDoc(cartRef, { ...existingDoc.data(), quantity, updatedAt: serverTimestamp() });
-    const idx = cartItems.findIndex(i => i.productId === productId);
+    const idx = cartItems.findIndex(i => i.id === productId);
     if (idx >= 0) cartItems[idx].quantity = quantity;
     notifyCartChange();
     return { success: true };
@@ -85,9 +90,9 @@ export async function removeFromCart(productId) {
   const user = getCurrentUser();
   if (!user) return { success: false, error: 'Not authenticated' };
   try {
-    const item = cartItems.find(i => i.productId === productId);
+    const item = cartItems.find(i => i.id === productId);
     await deleteDoc(doc(db, 'users', user.uid, 'cart', productId));
-    cartItems = cartItems.filter(i => i.productId !== productId);
+    cartItems = cartItems.filter(i => i.id !== productId);
     notifyCartChange();
     if (item) showToast(`Removed "${item.name}" from cart.`, 'success');
     return { success: true };
