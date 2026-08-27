@@ -82,8 +82,11 @@ async function initShopPage() {
   const resultsCount = document.getElementById('results-count');
   if (!grid) return;
 
-  let currentFilters = { search: '', category: 'All', sort: 'featured' };
+  const requestedCategory = new URLSearchParams(window.location.search).get('category');
+  const initialCategory = [...categoryPills].some(pill => pill.dataset.category === requestedCategory) ? requestedCategory : 'All';
+  let currentFilters = { search: '', category: initialCategory, sort: 'featured' };
   let allProducts = [];
+  categoryPills.forEach(pill => pill.classList.toggle('active', pill.dataset.category === initialCategory));
 
   renderProductSkeletons(grid, 8);
   const result = await fetchProducts();
@@ -102,6 +105,10 @@ async function initShopPage() {
       categoryPills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
       currentFilters.category = pill.dataset.category;
+      const url = new URL(window.location.href);
+      if (currentFilters.category === 'All') url.searchParams.delete('category');
+      else url.searchParams.set('category', currentFilters.category);
+      window.history.replaceState({}, '', url);
       applyFilters();
     });
   });
@@ -296,11 +303,13 @@ function initLoginPage() {
 
 function showFormError(fieldId, message) {
   const field = document.getElementById(fieldId);
-  if (!field) return;
-  const input = field.tagName === 'INPUT' ? field : field.querySelector('input');
+  const input = field?.tagName === 'INPUT' ? field : field?.querySelector('input');
   if (input) input.classList.add('error');
   const errorEl = document.getElementById(fieldId + '-error');
-  if (errorEl) { errorEl.textContent = message; errorEl.classList.remove('hidden'); }
+  if (errorEl) {
+    errorEl.textContent = message;
+    errorEl.classList.remove('hidden');
+  }
 }
 
 function clearErrors() {

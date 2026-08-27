@@ -74,10 +74,13 @@ export function createProductCard(product, options = {}) {
   const badgeHtml = product.badge ? `<span class="product-badge">${escapeHtml(product.badge)}</span>` : '';
   const wishlistHtml = showWishlist ? `<button class="product-wishlist-btn ${isWishlisted ? 'active' : ''}" data-product-id="${product.id}" aria-label="${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}" title="${isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}"><svg viewBox="0 0 24 24" ${isWishlisted ? 'fill="currentColor"' : ''}><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>` : '';
   card.innerHTML = `
-    <a href="product.html?id=${product.id}" class="product-image-wrapper">
+    <div class="product-image-wrapper">
+      <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-image-link" aria-label="View ${escapeHtml(product.name || 'product')}">
+        <img src="${escapeHtml(product.imageURL || '')}" alt="${escapeHtml(product.name || 'Product image')}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=800&fit=crop'">
+      </a>
       ${badgeHtml}${wishlistHtml}
-      <img src="${escapeHtml(product.imageURL || '')}" alt="${escapeHtml(product.name || 'Product image')}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&h=800&fit=crop'">
-    </a>
+      <a href="product.html?id=${encodeURIComponent(product.id)}" class="product-card-cta">View product<span class="sr-only">: ${escapeHtml(product.name || 'product')}</span></a>
+    </div>
     <div class="product-info">
       <p class="product-category">${escapeHtml(product.category || '')}</p>
       <h3 class="product-name">${escapeHtml(product.name || 'Untitled Product')}</h3>

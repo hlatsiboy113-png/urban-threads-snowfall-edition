@@ -86,6 +86,7 @@
 }
 @media(hover:none){
   .product-wishlist-btn{opacity:1;transform:translateY(0)}
+  .product-card-cta{opacity:1;transform:translateY(0)}
   .product-card:hover{transform:none}
   .product-card:hover .product-image-wrapper img{transform:none}
   .category-card:hover img{transform:none}

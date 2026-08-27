@@ -66,8 +66,20 @@ export function initMobileNav() {
   const mobileNav = document.getElementById('mobile-nav');
   const closeBtn = document.getElementById('mobile-nav-close');
   if (!menuBtn || !mobileNav) return;
-  function open() { mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; menuBtn.setAttribute('aria-expanded', 'true'); }
-  function close() { mobileNav.classList.remove('open'); document.body.style.overflow = ''; menuBtn.setAttribute('aria-expanded', 'false'); }
+  function open() {
+    mobileNav.classList.add('open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    menuBtn.setAttribute('aria-expanded', 'true');
+    closeBtn?.focus();
+  }
+  function close() {
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.focus();
+  }
   menuBtn.addEventListener('click', open);
   if (closeBtn) closeBtn.addEventListener('click', close);
   mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
