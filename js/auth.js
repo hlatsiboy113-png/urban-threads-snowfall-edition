@@ -7,9 +7,14 @@ let currentUser = null;
 let userData = null;
 let authStateCallbacks = [];
 
+/* ── Auth state resolution tracking ── */
+let authResolved = false;
+let authResolveFn = null;
+const authReadyPromise = new Promise((resolve) => { authResolveFn = resolve; });
+
 export function onAuthStateChange(callback) {
   authStateCallbacks.push(callback);
-  if (currentUser !== undefined) callback(currentUser, userData);
+  if (authResolved) callback(currentUser, userData);
   return () => { authStateCallbacks = authStateCallbacks.filter(cb => cb !== callback); };
 }
 
@@ -19,6 +24,10 @@ function notifyAuthStateChange() {
 
 onAuthStateChanged(auth, async (user) => {
   currentUser = user;
+  if (!authResolved) {
+    authResolved = true;
+    if (authResolveFn) { authResolveFn(); authResolveFn = null; }
+  }
   if (user) {
     try {
       const userDoc = await getDoc(doc(db, 'users', user.uid));
@@ -33,6 +42,35 @@ onAuthStateChanged(auth, async (user) => {
 export function getCurrentUser() { return currentUser; }
 export function getUserData() { return userData; }
 export function isAuthenticated() { return !!currentUser; }
+
+/* ── Safe redirect validation ── */
+function isSafeRedirect(url) {
+  try {
+    const parsed = new URL(url, window.location.origin);
+    if (parsed.origin !== window.location.origin) return false;
+    // Allow .html pages, root, or empty
+    const path = parsed.pathname;
+    if (path === '/' || path === '') return true;
+    return path.endsWith('.html');
+  } catch { return false; }
+}
+
+/* ── Async requireAuth: waits for Firebase auth resolution ── */
+export async function requireAuth(redirectUrl = 'login.html') {
+  if (!authResolved) {
+    await authReadyPromise;
+  }
+  if (!isAuthenticated()) {
+    const redirectTarget = window.location.pathname + window.location.search;
+    if (isSafeRedirect(redirectTarget)) {
+      sessionStorage.setItem('authRedirect', redirectTarget);
+    }
+    const redirectParam = encodeURIComponent(redirectTarget);
+    window.location.href = `${redirectUrl}?redirect=${redirectParam}`;
+    return false;
+  }
+  return true;
+}
 
 export async function signUp(name, email, password, confirmPassword) {
   const errors = {};
@@ -82,15 +120,6 @@ function getFriendlyError(error) {
   if (c === 'auth/too-many-requests') return 'Too many failed attempts. Please try again later.';
   if (c === 'auth/network-request-failed') return 'Network error. Please check your internet connection and try again.';
   return 'An unexpected error occurred. Please try again.';
-}
-
-export function requireAuth(redirectUrl = '/login.html') {
-  if (!isAuthenticated()) {
-    sessionStorage.setItem('authRedirect', window.location.pathname + window.location.search);
-    window.location.href = redirectUrl;
-    return false;
-  }
-  return true;
 }
 
 export function initNavbar() {

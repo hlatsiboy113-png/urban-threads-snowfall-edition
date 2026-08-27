@@ -24,7 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
   else if (page === 'account') { initAccountPage(); }
 });
 
-/* ── Wishlist heart-icon sync (used by homepage + shop) ── */
+/* ── Safe redirect resolver for login page ── */
+function getSafeRedirect() {
+  const urlParam = new URLSearchParams(window.location.search).get('redirect');
+  const sessionParam = sessionStorage.getItem('authRedirect');
+  sessionStorage.removeItem('authRedirect');
+  const target = urlParam || sessionParam || 'index.html';
+  try {
+    const parsed = new URL(target, window.location.origin);
+    if (parsed.origin !== window.location.origin) return 'index.html';
+    const path = parsed.pathname;
+    if (path === '/' || path === '' || path.endsWith('.html')) {
+      return parsed.pathname + parsed.search;
+    }
+    return 'index.html';
+  } catch { return 'index.html'; }
+}
+
+/* ── Wishlist heart-icon sync ── */
 function syncWishlistIcons() {
   const items = getWishlistItems();
   document.querySelectorAll('.product-wishlist-btn').forEach(btn => {
@@ -127,7 +144,8 @@ function debounce(func, wait) {
 /* ── Cart page ── */
 async function initCartPage() {
   const { requireAuth } = await import('./auth.js');
-  if (!requireAuth('login.html')) return;
+  const authed = await requireAuth('login.html');
+  if (!authed) return;
   const { loadCart, getCartItems, getCartSubtotal, getShippingCost, getCartTotal, updateQuantity, removeFromCart, clearCart, onCartChange } = await import('./cart.js');
   const itemsContainer = document.getElementById('cart-items');
   const summaryContainer = document.getElementById('cart-summary');
@@ -242,8 +260,7 @@ function initLoginPage() {
       const result = await logIn(email, password);
       submitBtn.disabled = false; submitBtn.textContent = 'Sign In';
       if (result.success) {
-        const redirect = new URLSearchParams(window.location.search).get('redirect') || 'index.html';
-        window.location.href = redirect;
+        window.location.href = getSafeRedirect();
       } else {
         if (result.errors.general) showFormError('login-general', result.errors.general);
         if (result.errors.email) showFormError('login-email', result.errors.email);
@@ -265,8 +282,7 @@ function initLoginPage() {
       const result = await signUp(name, email, password, confirmPassword);
       submitBtn.disabled = false; submitBtn.textContent = 'Create Account';
       if (result.success) {
-        const redirect = new URLSearchParams(window.location.search).get('redirect') || 'index.html';
-        window.location.href = redirect;
+        window.location.href = getSafeRedirect();
       } else {
         if (result.errors.general) showFormError('signup-general', result.errors.general);
         if (result.errors.name) showFormError('signup-name', result.errors.name);
@@ -301,7 +317,8 @@ async function initProductPage() {
 /* ── Account ── */
 async function initAccountPage() {
   const { requireAuth, onAuthStateChange, getUserData, logOut } = await import('./auth.js');
-  if (!requireAuth('login.html')) return;
+  const authed = await requireAuth('login.html');
+  if (!authed) return;
   onAuthStateChange((user, data) => {
     if (!user) return;
     const nameEl = document.getElementById('account-name');
