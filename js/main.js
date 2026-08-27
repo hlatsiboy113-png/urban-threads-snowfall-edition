@@ -6,7 +6,7 @@ import { fetchProducts, renderProductsGrid, renderProductSkeletons, SEED_PRODUCT
 import { addToCart } from './cart.js';
 import { toggleWishlist, onWishlistChange, getWishlistItems } from './wishlist.js';
 import { isAuthenticated } from './auth.js';
-
+ 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMobileNav();
