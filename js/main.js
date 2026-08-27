@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCart();
   initWishlist();
   initScrollAnimations();
-
+ 
   const page = document.body.dataset.page;
   if (page === 'home') { initHomepage(); initSnowfall(50); }
   else if (page === 'shop') { initShopPage(); }
